@@ -1,17 +1,18 @@
 //g++ main.cpp -Ilibdiscord/include -ldiscord -lboost_system -lcrypto -lssl -lcpprest -lz -lpthread -std=c++14 -o output_file
 
-#include "include/sleepy_discord/websocketpp_websocket.h"
+#include <discord.h>
 
-class myClientClass : public SleepyDiscord::DiscordClient {
-public:
-    using SleepyDiscord::DiscordClient::DiscordClient;
-    void onMessage(SleepyDiscord::Message message) {
-        if (message.startsWith("hello CafeBot"))
-            sendMessage(message.channelID, "Hello " + message.author.username);
+using namespace discord;
+
+int main() { // REMINDER: DO NOT PUSH TOKEN TO MASTER!!!!!
+  std::string token = "YOUR_TOKEN"; //Get Bot Token From: https://discordapp.com/developers/applications/
+  auto bot = Bot(token); // DON'T DO IT!!
+
+  bot->on_message([](MessageEvent& event) {
+    if (event.content() == "Ping!") {
+      event.respond("Pong!");
     }
-};
+  });
 
-int main() { // DO NOT PUSH TOKEN TO MASTER!!!!!!!!!
-    myClientClass client("Token", 2); //Token is the Bots Token and can be found here: https://discordapp.com/developers/applications/
-    client.run();
+  bot->run();
 }
