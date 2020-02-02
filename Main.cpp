@@ -1,6 +1,6 @@
 //g++ main.cpp -Ilibdiscord/include -ldiscord -lboost_system -lcrypto -lssl -lcpprest -lz -lpthread -std=c++14 -o output_file
 
-#include "websocketpp_websocket.h"
+#include "include/sleepy_discord/websocketpp_websocket.h"
 
 class myClientClass : public SleepyDiscord::DiscordClient {
 public:
