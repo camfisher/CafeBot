@@ -5,7 +5,7 @@
 #define _WEBSOCKETPP_CPP11_TYPE_TRAITS_
 #endif // !BOOST_VERSION
 
-#include <websocketpp/config/asio_client.hpp>
+#include <include/sleepy_discord/websocketpp/config/asio_client.hpp>
 #ifndef NONEXISTENT_WEBSOCKETPP
 #include <chrono>
 //#include <websocketpp/config/asio_no_tls_client.hpp>
