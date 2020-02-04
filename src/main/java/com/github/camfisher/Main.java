@@ -55,11 +55,12 @@ public class Main
 
 
         // Add listeners :: api.addMessageCreateListener(new 'command');
+        api.addMessageCreateListener(new HelpCommand());
         api.addMessageCreateListener(new UserInfoCommand());
         api.addMessageCreateListener(new UserTagMeCommand());
         api.addMessageCreateListener(new ShutDownCommand());
-        api.addMessageCreateListener(new HelpCommand());
-        api.addMessageCreateListener(new RestartCommand());
+        //api.addMessageCreateListener(new RestartCommand());
+        api.addMessageCreateListener(new PasserbyRolePurgeCommand());
 
     }
 

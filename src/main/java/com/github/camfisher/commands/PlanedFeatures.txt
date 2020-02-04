@@ -1,0 +1,3 @@
+Passerby role purge :: remove passerby role if user has other role roles
+Actively give/remove access to freebie channel based on activity in the server
+Deviantart user search !DAUsr "username"

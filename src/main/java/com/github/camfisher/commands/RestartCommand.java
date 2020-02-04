@@ -15,7 +15,7 @@ import com.github.camfisher.Main;
 
 public class RestartCommand implements MessageCreateListener {
     /*
-     * This is a test command to tag users
+     * Command to restart the bot
      *
      */
     @Override
@@ -43,7 +43,7 @@ public class RestartCommand implements MessageCreateListener {
             ex.printStackTrace();
         }
 
-        // Check if the message content equals "!userInfo"
+        // Check if the message content equals "!Restart"
         if (event.getMessageContent().equalsIgnoreCase(prefix + "Restart"))
         {
             MessageAuthor author = event.getMessage().getAuthor();

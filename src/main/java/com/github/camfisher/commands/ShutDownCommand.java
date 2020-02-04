@@ -12,7 +12,7 @@ import java.util.Properties;
 public class ShutDownCommand implements MessageCreateListener
 {
     /*
-     * This is a test command to tag users
+     * Command to shutdown the Bot
      *
      */
     @Override
@@ -40,14 +40,18 @@ public class ShutDownCommand implements MessageCreateListener
             ex.printStackTrace();
         }
 
-        // Check if the message content equals "!userInfo"
+        // Check if the message content equals "!Shutdown"
         if (event.getMessageContent().equalsIgnoreCase(prefix + "Shutdown"))
         {
             MessageAuthor author = event.getMessage().getAuthor();
-            if (author.isServerAdmin() == true)
+            if (author.isServerAdmin()) // Check if user invoking command is an admin
             {
                 event.getChannel().sendMessage("<@" + author.getIdAsString() + ">" + " :: Shutting down!");
                 System.exit(0);
+            }
+            else
+            {
+                event.getChannel().sendMessage("<@" + author.getIdAsString() + ">" + " tried to use a admin only command.");
             }
         }
     }

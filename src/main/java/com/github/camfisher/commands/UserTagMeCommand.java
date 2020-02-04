@@ -41,7 +41,7 @@ public class UserTagMeCommand implements MessageCreateListener
             ex.printStackTrace();
         }
 
-        // Check if the message content equals "!userInfo"
+        // Check if the message content equals "!TagMe"
         if (event.getMessageContent().equalsIgnoreCase(prefix + "TagMe"))
         {
             MessageAuthor author = event.getMessage().getAuthor();

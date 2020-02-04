@@ -1,21 +1,21 @@
 package com.github.camfisher.commands;
 
 import org.javacord.api.entity.message.MessageAuthor;
-import org.javacord.api.entity.message.embed.EmbedBuilder;
 import org.javacord.api.event.message.MessageCreateEvent;
-import org.javacord.api.exception.MissingPermissionsException;
 import org.javacord.api.listener.message.MessageCreateListener;
-import org.javacord.api.util.logging.ExceptionLogger;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class HelpCommand implements MessageCreateListener
-{
+
+
+import com.github.camfisher.Main;
+
+public class CommandBoilerplate implements MessageCreateListener {
     /*
-     * This is a help command
+     * This is a test command to tag users
      *
      */
     @Override
@@ -43,19 +43,8 @@ public class HelpCommand implements MessageCreateListener
             ex.printStackTrace();
         }
 
-
-
-        // Check if the message content equals "!Help"
-        if (event.getMessageContent().equalsIgnoreCase( prefix + "Help"))
+        if (event.getMessageContent().equalsIgnoreCase(prefix + "boilerplate"))
         {
-            MessageAuthor author = event.getMessage().getAuthor();
-            event.getChannel().sendMessage("<@" + author.getIdAsString() + ">");
-            EmbedBuilder embed = new EmbedBuilder()
-                    .setTitle("Help Message")
-                    .addField("TODO", "Make the bot actually useful", true)
-                    .setAuthor(author);
-            event.getChannel().sendMessage(embed)
-                    .exceptionally(ExceptionLogger.get(MissingPermissionsException.class));
         }
     }
 }
