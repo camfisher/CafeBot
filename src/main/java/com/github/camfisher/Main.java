@@ -15,10 +15,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-
-
 
 public class Main
 {
@@ -63,6 +59,7 @@ public class Main
         api.addMessageCreateListener(new UserTagMeCommand());
         api.addMessageCreateListener(new ShutDownCommand());
         api.addMessageCreateListener(new HelpCommand());
+        api.addMessageCreateListener(new RestartCommand());
 
     }
 

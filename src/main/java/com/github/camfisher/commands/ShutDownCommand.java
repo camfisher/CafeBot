@@ -44,8 +44,11 @@ public class ShutDownCommand implements MessageCreateListener
         if (event.getMessageContent().equalsIgnoreCase(prefix + "Shutdown"))
         {
             MessageAuthor author = event.getMessage().getAuthor();
-            event.getChannel().sendMessage("<@" + author.getIdAsString() + ">" + " :: Shutting down!");
-            System.exit(0);
+            if (author.isServerAdmin() == true)
+            {
+                event.getChannel().sendMessage("<@" + author.getIdAsString() + ">" + " :: Shutting down!");
+                System.exit(0);
+            }
         }
     }
 }
