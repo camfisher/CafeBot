@@ -18,10 +18,10 @@ import java.util.Properties;
 
 public class Main
 {
+    public static DiscordApi api;
 
     public static void main(String[] args)
     {
-
         String token = "";
         try (InputStream input = new FileInputStream("config.cfg"))
         {
@@ -50,9 +50,7 @@ public class Main
             System.err.println("Please provide a valid token as the first argument!" + token.length());
             return;
         }
-
         DiscordApi api = new DiscordApiBuilder().setToken(token).login().join();
-
 
         // Add listeners :: api.addMessageCreateListener(new 'command');
         api.addMessageCreateListener(new HelpCommand());
@@ -61,7 +59,6 @@ public class Main
         api.addMessageCreateListener(new ShutDownCommand());
         //api.addMessageCreateListener(new RestartCommand());
         api.addMessageCreateListener(new PasserbyRolePurgeCommand());
-
     }
 
 }
