@@ -46,13 +46,26 @@ public class HelpCommand implements MessageCreateListener
 
 
         // Check if the message content equals "!Help"
-        if (event.getMessageContent().equalsIgnoreCase( prefix + "Help"))
+        if (event.getMessageContent().toLowerCase().contains( prefix + "bothelp") || event.getMessageContent().toLowerCase().contains("thea " + "bothelp"))
+        {
+            MessageAuthor author = event.getMessage().getAuthor();
+            event.getChannel().sendMessage("<@" + author.getIdAsString() + ">");
+            EmbedBuilder embed = new EmbedBuilder() // create the embeded help message
+                    .setTitle("Bot Command Help")
+                    .addField("Current Bot Prefix", "Thea \n" + prefix, true)
+                    .addField("Active Commands", "Help \n BotHelp \n Hello" , false)
+                    .addField("Active Features", "Introductions Assisted Moderation", false)
+                    .setAuthor(author);
+            event.getChannel().sendMessage(embed)
+                    .exceptionally(ExceptionLogger.get(MissingPermissionsException.class));
+        }
+        else if (event.getMessageContent().toLowerCase().contains("thea " + "help"))
         {
             MessageAuthor author = event.getMessage().getAuthor();
             event.getChannel().sendMessage("<@" + author.getIdAsString() + ">");
             EmbedBuilder embed = new EmbedBuilder()
-                    .setTitle("Help Message")
-                    .addField("TODO", "Make the bot actually useful", true)
+                    .setTitle("User Help")
+                    .addField("If you need help from staff, please view the", "<#648312790179905559>", true)
                     .setAuthor(author);
             event.getChannel().sendMessage(embed)
                     .exceptionally(ExceptionLogger.get(MissingPermissionsException.class));

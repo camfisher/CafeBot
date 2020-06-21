@@ -49,6 +49,7 @@ public class RestartCommand implements MessageCreateListener {
             MessageAuthor author = event.getMessage().getAuthor();
             event.getChannel().sendMessage("<@" + author.getIdAsString() + ">" + " :: Restarting!");
             Main.main(null);
+            System.exit(0);
         }
     }
 }

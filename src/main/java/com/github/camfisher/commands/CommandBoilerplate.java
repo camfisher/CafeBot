@@ -43,7 +43,7 @@ public class CommandBoilerplate implements MessageCreateListener {
             ex.printStackTrace();
         }
 
-        if (event.getMessageContent().equalsIgnoreCase(prefix + "boilerplate"))
+        if (event.getMessageContent().equalsIgnoreCase(prefix + "boilerplate") || event.getMessageContent().equalsIgnoreCase("Thea " + "boilerplate"))
         {
         }
     }

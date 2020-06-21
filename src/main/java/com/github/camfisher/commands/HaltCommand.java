@@ -9,10 +9,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class ShutDownCommand implements MessageCreateListener
-{
+
+
+import com.github.camfisher.Main;
+
+public class HaltCommand implements MessageCreateListener {
     /*
-     * Command to shutdown the Bot
+     * This is a test command to tag users
      *
      */
     @Override
@@ -40,19 +43,9 @@ public class ShutDownCommand implements MessageCreateListener
             ex.printStackTrace();
         }
 
-        // Check if the message content equals "!Shutdown"
-        if (event.getMessageContent().equalsIgnoreCase(prefix + "Shutdown"))
+        if (event.getMessageContent().equalsIgnoreCase(prefix + "Stop this") || event.getMessageContent().equalsIgnoreCase("Thea " + "Stop this"))
         {
-            MessageAuthor author = event.getMessage().getAuthor();
-            if (author.getIdAsString() == "265325893075992577") // Check if user invoking command is an admin
-            {
-                event.getChannel().sendMessage("<@" + author.getIdAsString() + ">" + " :: Shutting down!");
-                System.exit(0);
-            }
-            else
-            {
-                event.getChannel().sendMessage("<@" + author.getIdAsString() + ">" + " tried to use a Bot Owner only command.");
-            }
+            event.getChannel().sendMessage("Stop you've violated the law!");
         }
     }
 }
